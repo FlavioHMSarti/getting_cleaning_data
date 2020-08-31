@@ -65,3 +65,4 @@ mean_values$activity <- activity_labels[,2][match(mean_values$activity, activity
 tidy_data <- aggregate(mean_values[,2:80], by = list(mean_values$candidate, mean_values$activity), FUN = mean, na.rm = TRUE)
 View(tidy_data)
 names(tidy_data)[1:2] <- c("candidate", "activity")
+write.table( tidy_data, "average_tidy_data.txt", row.names = FALSE )
